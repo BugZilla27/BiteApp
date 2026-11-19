@@ -10,41 +10,55 @@ class CounterHomeScreen extends StatefulWidget {
 
 class _CounterHomeScreenState extends State<CounterHomeScreen> {
   int i = 0;
+  bool switchState = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         color: Colors.white60,
         alignment: Alignment.center,
-        child: Container(
-          padding: EdgeInsets.all(15),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-            shape: BoxShape.rectangle,
-            boxShadow: [BoxShadow(color: Colors.blueAccent)],
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    i++;
-                  });
-                },
-                icon: const Icon(Icons.add),
+        child: Column(
+          children: [
+            Switch(
+              value: switchState,
+              onChanged: (val) {
+                setState(() {
+                  switchState = val;
+                });
+              },
+            ),
+            // Counter Widget
+            Container(
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                shape: BoxShape.rectangle,
+                boxShadow: [BoxShadow(color: Colors.blueAccent)],
               ),
-              Text('Counter: $i'),
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    i--;
-                  });
-                },
-                icon: const Icon(Icons.remove),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        i++;
+                      });
+                    },
+                    icon: const Icon(Icons.add),
+                  ),
+                  Text('Counter: $i'),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        i--;
+                      });
+                    },
+                    icon: const Icon(Icons.remove),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
