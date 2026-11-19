@@ -28,6 +28,7 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
       body: Container(
         color: Colors.white60,
         alignment: Alignment.topCenter,
+        padding: EdgeInsets.all(10),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -88,6 +89,14 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
                 ),
               ),
 
+              TextField(
+                decoration: InputDecoration(
+                  icon: Icon(Icons.search),
+                  filled: true,
+                  label: Text('Search what comes into your minde.'),
+                ),
+              ),
+              //RadioListTile Widget
               Material(
                 child: RadioGroup(
                   groupValue: foodChoice,

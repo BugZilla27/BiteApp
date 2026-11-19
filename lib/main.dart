@@ -11,6 +11,7 @@ class BiteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'BiteApp', home: const CounterHomeScreen());
+    return MaterialApp(title: 'BiteApp', home: const CounterHomeScreen()
+    );
   }
 }
