@@ -21,6 +21,10 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
 
   //RadioListTile Variable
   String? foodChoice = 'Burger';
+
+  //TextField Controller Variable
+  TextEditingController input = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +35,7 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
         padding: EdgeInsets.all(10),
         child: SingleChildScrollView(
           child: Column(
+            spacing: 20,
             children: [
               //SwitchListTile
               //The widget was wraped in Material widget due to a color splash ink error
@@ -90,10 +95,24 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
               ),
 
               TextField(
+                controller: input,
                 decoration: InputDecoration(
                   icon: Icon(Icons.search),
                   filled: true,
                   label: Text('Search what comes into your minde.'),
+                ),
+              ),
+
+              ElevatedButton(
+                onPressed: () {
+                  print(input.text);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent,
+                ),
+                child: Text(
+                  'Push me daddy',
+                  style: TextStyle(color: Colors.white70),
                 ),
               ),
               //RadioListTile Widget
