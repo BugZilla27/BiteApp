@@ -22,8 +22,15 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
   //RadioListTile Variable
   String? foodChoice = 'Burger';
 
+  GlobalKey<FormState> textFormKey = GlobalKey();
+
   //TextField Controller Variable
   TextEditingController input = TextEditingController();
+
+  void dispose() {
+    input.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,6 +122,36 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
                   style: TextStyle(color: Colors.white70),
                 ),
               ),
+              //TextFormField
+              Form(
+                key: textFormKey,
+                child: TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return ('The Field is empty');
+                    }
+                  },
+                ),
+              ),
+
+              ElevatedButton(
+                onPressed: () {
+                  if (textFormKey.currentState!.validate()) {
+                    print('valid');
+                  } else {
+                    print(textFormKey);
+                  }
+                  ;
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent,
+                ),
+                child: Text(
+                  'Let\'s have an update',
+                  style: TextStyle(color: Colors.white70),
+                ),
+              ),
+
               //RadioListTile Widget
               Material(
                 child: RadioGroup(
