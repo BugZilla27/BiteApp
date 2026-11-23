@@ -38,7 +38,7 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      //appBar: AppBar(title: Text('Stateful Practice'), elevation: 5),
+      appBar: AppBar(title: Text('Stateful Practice'), elevation: 5),
       drawer: Drawer(backgroundColor: Colors.blueAccent),
       body: Container(
         color: Colors.white60,
