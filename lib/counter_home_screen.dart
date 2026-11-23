@@ -14,6 +14,7 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
 
   //Switch Wdiget Variables
   bool switchState = false;
+  bool openDrawer = false;
 
   //SwitchListTile Variable
   bool switchListTileState = false;
@@ -23,6 +24,7 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
   String? foodChoice = 'Burger';
 
   GlobalKey<FormState> textFormKey = GlobalKey();
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
   //TextField Controller Variable
   TextEditingController input = TextEditingController();
@@ -35,15 +37,31 @@ class _CounterHomeScreenState extends State<CounterHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Stateful Practice'), elevation: 5),
+      key: scaffoldKey,
+      //appBar: AppBar(title: Text('Stateful Practice'), elevation: 5),
+      drawer: Drawer(backgroundColor: Colors.blueAccent),
       body: Container(
         color: Colors.white60,
         alignment: Alignment.topCenter,
+        margin: EdgeInsets.all(10),
         padding: EdgeInsets.all(10),
         child: SingleChildScrollView(
           child: Column(
             spacing: 20,
             children: [
+              Switch(
+                value: openDrawer,
+                onChanged: (value) {
+                  setState(() {
+                    openDrawer = value;
+                  });
+                  openDrawer
+                      ? scaffoldKey.currentState!.openDrawer()
+                      : openDrawer;
+                  print(openDrawer);
+                },
+              ),
+
               //SwitchListTile
               //The widget was wraped in Material widget due to a color splash ink error
               Material(
