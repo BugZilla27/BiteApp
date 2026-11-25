@@ -53,7 +53,7 @@ class _TabBarScreen extends State<TabBarScreen> {
           ),
           backgroundColor: Colors.blueAccent,
         ),
-        body: TabBarView(children: [Homescreen(),
+        body: TabBarView(children: [const Center(child: Text('Login Home Screen')), Homescreen(),
         CounterHomeScreen()]),
       ),
     );
