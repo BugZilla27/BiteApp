@@ -1,6 +1,4 @@
-import 'package:bite_delivery/counter_home_screen.dart';
 import 'package:bite_delivery/tab_bar_screen.dart';
-//import 'package:bite_delivery/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +10,6 @@ class BiteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'BiteApp', home: const TabBarScreen()
-    );
+    return MaterialApp(title: 'BiteApp', home: const TabBarScreen());
   }
 }
